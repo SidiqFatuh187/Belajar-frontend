@@ -1,18 +1,18 @@
-// Buat observer untuk cek elemen yang masuk viewport
+/ Buat observer untuk cek elemen yang masuk viewport
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add("show"); // kasih class show kalau kelihatan
+            entry.target.classList.add("show"); / kasih class show kalau kelihatan
         } else {
-            entry.target.classList.remove("show"); // reset biar bisa animasi lagi
+            entry.target.classList.remove("show"); / reset biar bisa animasi lagi
         }
     });
 }, { threshold: 0.2 }); // aktif kalau 20% elemen kelihatan
 
-// Cari semua elemen dengan class "reveal"
+/ Cari semua elemen dengan class "reveal"
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// Smooth scroll untuk link internal (#)
+/ Smooth scroll untuk link internal (#)
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
@@ -21,4 +21,5 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
             target.scrollIntoView({ behavior: 'smooth' });
         }
     });
+
 });
